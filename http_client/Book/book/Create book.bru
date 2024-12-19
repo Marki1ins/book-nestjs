@@ -1,0 +1,22 @@
+meta {
+  name: Create book
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base_url}}/book/
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "image": "https://i.ebayimg.com/images/g/1isAAOSwQ8tj~NnW/s-l400.jpg",
+    "title": "Holy Bible",
+    "author": "Unknown",
+    "releaseDate": "2024-12-18",
+    "gender": "Religion",
+    "sinopse": "The Holy Bible is a collection of sacred texts central to Christianity, consisting of the Old and New Testaments. The Old Testament details the history, laws, and prophecies of Israel, while the New Testament focuses on the life, teachings, death, and resurrection of Jesus Christ. It guides believers in faith, morality, and salvation, offering spiritual wisdom, encouragement, and a foundation for Christian doctrine. The Bible is revered as God's inspired word."
+  }
+}
