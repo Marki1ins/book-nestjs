@@ -1,14 +1,16 @@
 {
   "name": "book-nestjs",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.1.0",
+  "description": "API for My.Books",
   "author": "",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "dev": "concurrently \"pnpm docker:up\" \"pnpm start:dev\" --watch",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -21,10 +23,16 @@
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
+    "@nestjs/config": "^3.3.0",
     "@nestjs/core": "^10.0.0",
     "@nestjs/platform-express": "^10.0.0",
+    "@nestjs/typeorm": "^10.0.2",
+    "dotenv": "^16.4.7",
+    "pg": "^8.13.1",
     "reflect-metadata": "^0.2.0",
-    "rxjs": "^7.8.1"
+    "rxjs": "^7.8.1",
+    "sqlite3": "^5.1.7",
+    "typeorm": "^0.3.20"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.0.0",
@@ -36,6 +44,7 @@
     "@types/supertest": "^6.0.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
+    "concurrently": "^9.1.0",
     "eslint": "^8.0.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
